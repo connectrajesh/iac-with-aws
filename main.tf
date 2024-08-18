@@ -1,17 +1,17 @@
 provider "aws" {
-  region = "us-east-1"
+  region     = "us-east-1"
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
 
 // Create a new bucket for storing content such as images,text files
 resource "aws_s3_bucket" "content_bucket" {
-  bucket  = "devops-stories-content-bucket"
+  bucket = "devops-stories-content-bucket"
   // Will delete the resource even if the bucket is not empty
   force_destroy = true
-  tags    = {
-	Name          = "devops-stories-content-bucket"
-	Environment    = "Production"
+  tags = {
+    Name        = "devops-stories-content-bucket"
+    Environment = "Production"
   }
 }
 
